@@ -1,8 +1,14 @@
 import React from 'react'
+import { Wrapper } from './navbar.styled'
 
 const Navbar = () => {
   return (
-    <div>Navbar Component</div>
+    <>
+      <Wrapper>
+        <p>My Online Journal</p>
+        <p>Login</p>
+      </Wrapper>  
+    </>
   )
 }
 
