@@ -1,13 +1,12 @@
 import React from 'react'
+import  GlobalStyle  from './globalStyles.styled'
 import Navbar from './components/Navbar'
 
-const App = () => {
-  return (
-    <div>
-      <h1>welcome</h1>
-      <Navbar />
-    </div>
-  )
-}
+const App:React.FC = ()=> (
+  <>
+    <GlobalStyle />
+    <Navbar />
+  </>
+)
 
 export default App
