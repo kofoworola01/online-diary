@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <>
       <Wrapper>
-        <p>My Online Journal</p>
+        <p style={{fontSize: 23}}>Online Journal</p>
         <p>Login</p>
       </Wrapper>  
     </>
