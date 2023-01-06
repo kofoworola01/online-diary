@@ -1,11 +1,15 @@
 import React from 'react'
 import {InputWrapper} from './inputfields.styled'
 
-const InputFields = () => {
+interface InputFieldsProps {
+  placeholder: string;
+}
+
+const InputFields: React.FC<InputFieldsProps> = ({placeholder}) => {
   return (
     <div style={{marginTop: 50}}>
     <InputWrapper 
-      placeholder='Enter your username'
+      placeholder={placeholder}
     />
     </div>
   )

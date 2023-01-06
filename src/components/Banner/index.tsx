@@ -1,10 +1,14 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 import Button from 'components/Button'
 import BannerImage from '../../images/pngtree-girl-diary-write-journal-teen-png-image_5553312.jpeg'
 import { Image, Container, TextWrapper } from './banner.styled'
 
 
 const Banner = () => {
+
+    const navigate = useNavigate()
+
   return (
     <div>
         <Container>
@@ -17,7 +21,7 @@ const Banner = () => {
                 <Button
                     text='Get Started Now'
                     bgColor='#651ff5'
-                    onClick={() => {}}
+                    onClick={() => navigate('/signup')}
                     // bgColor='#FF7F50'
                 />
                
