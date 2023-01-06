@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
-import Text from 'components/Text';
+import Text from '../Text';
 import { Wrapper} from './navbar.styled'
 
 interface NavbarProps {
