@@ -10,13 +10,14 @@ const Banner = () => {
         <Container>
             <TextWrapper>
                 <h1>The Ultimate Online <span style={{color: '#9370DB'}}>Journal</span></h1> 
-                <p>
+                <p style={{fontWeight: 'normal'}}>
                     Each new day is a blank page in the diary of your life. 
                     The secret of success is in turning that diary into the best story you possibly can. ― Douglas Pagels.
                 </p>
                 <Button
                     text='Get Started Now'
                     bgColor='#651ff5'
+                    onClick={() => {}}
                     // bgColor='#FF7F50'
                 />
                

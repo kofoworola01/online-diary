@@ -11,4 +11,5 @@ export const ButtonWrapper = styled.div<{bgColor?: string}>`
     margin-top: 40px;
     font-weight: 600;
     color: whitesmoke;
+    cursor: pointer;
 `

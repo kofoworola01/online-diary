@@ -1,12 +1,20 @@
 import React from 'react'
-import { Wrapper } from './navbar.styled'
+import { useNavigate } from "react-router-dom";
+import Text from 'components/Text';
+import { Wrapper} from './navbar.styled'
 
-const Navbar = () => {
+interface NavbarProps {
+  hideLogin?: boolean;
+}
+
+const Navbar: React.FC<NavbarProps> = ({hideLogin}) => {
+  const navigate = useNavigate()
+
   return (
     <>
       <Wrapper>
-        <p style={{fontSize: 23}}>Online Journal</p>
-        <p>Login</p>
+        <Text fontSize={'23px'} onClick={() => navigate('/')} text='Online Journal'/>
+        {!hideLogin && <Text onClick={() => navigate('/login')} text='Login' />}
       </Wrapper>  
     </>
   )

@@ -10,3 +10,8 @@ export const Wrapper = styled.div`
   align-items: center;
 `;
 
+export const Text = styled.p<{fontSize?: string}>`
+  font-size: ${(({fontSize}) => fontSize)};
+  cursor: pointer;
+`
+

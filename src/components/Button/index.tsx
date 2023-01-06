@@ -5,11 +5,13 @@ interface ButtonProps {
   text: String;
   children?: React.ReactNode;
   bgColor: string
+  style?: {},
+  onClick: any,
 }
 
-const Button: React.FC<ButtonProps> = ({text, bgColor}) => {
+const Button: React.FC<ButtonProps> = ({text, bgColor, style, onClick}) => {
   return (
-    <ButtonWrapper bgColor={bgColor}>
+    <ButtonWrapper bgColor={bgColor} style={style} onClick={onClick}>
       {text}
     </ButtonWrapper>
   )
