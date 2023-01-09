@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 import Navbar from 'components/Navbar'
 import FormBox from 'components/FormBox'
 import InputFields from 'components/InputFields'
@@ -7,6 +8,8 @@ import Button from 'components/Button'
 import { ButtonWrapper } from './login.styled'
 
 const Login = () => {
+  const navigate = useNavigate()
+
   return (
     <div>
       <Navbar hideLogin />
@@ -23,7 +26,7 @@ const Login = () => {
           <Button
             text={'Login'}
             bgColor='#9370DB'
-            onClick={() => {}}
+            onClick={() => {navigate('/dashboard')}}
             style={{marginTop: 60}}
           />
           <Text
