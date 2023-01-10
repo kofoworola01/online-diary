@@ -1,14 +1,70 @@
-import React from 'react'
+import React, { useState } from 'react'
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import Text from 'components/Text';
-import {CardWrapper, IconWrapper, CardFooter} from './card.styled'
+import Modal from '@mui/material/Modal';
+import Button from 'components/Button';
+
+import {CardWrapper, IconWrapper, CardFooter, ModalWrapper, ModalContent, ModalHeader, BtnWrapper} from './card.styled'
 
 const Card = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <div>
-        <CardWrapper>
-            Today I was .....
+        <Modal
+          open={open}
+          onClose={handleClose}
+          children={
+            <ModalWrapper>
+              <div>
+                <ModalHeader>
+                  <Text 
+                    text='Update your entry'
+                    fontSize='20px'
+                    alignCenter
+                  />
+                </ModalHeader>
+                <ModalContent>
+                 <BtnWrapper>
+                  <Button 
+                      text='Cancel'
+                      bgColor='#fff'
+                      onClick={() => setOpen(false)}
+                      color='#9370DB'
+                      width='92px'
+                      height='34px'
+                    />
+                    <Button 
+                      text='Update'
+                      bgColor='#9370DB'
+                      onClick={() => {}}
+                      width='92px'
+                      height='34px'
+                    />
+                 </BtnWrapper>
+                </ModalContent>
+              </div>
+
+            </ModalWrapper>
+          }
+        />
+       
+        <CardWrapper onClick={handleOpen}>
+            <div>
+              <Text 
+                text='The Fisherman'
+                fontSize='16x'
+                fontWeight={700}
+              />
+              <Text 
+                text='Today I was .....'
+                fontSize='14px'
+              />
+            </div>
           <CardFooter>
             <IconWrapper width=''>
                 <Text 

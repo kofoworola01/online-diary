@@ -7,11 +7,21 @@ interface ButtonProps {
   bgColor: string
   style?: {},
   onClick: any,
+  color?: string,
+  width?: string,
+  height?: string,
 }
 
-const Button: React.FC<ButtonProps> = ({text, bgColor, style, onClick}) => {
+const Button: React.FC<ButtonProps> = ({text, bgColor, style, onClick, color, width, height}) => {
   return (
-    <ButtonWrapper bgColor={bgColor} style={style} onClick={onClick}>
+    <ButtonWrapper 
+      bgColor={bgColor} 
+      style={style} 
+      onClick={onClick} 
+      width={width} 
+      color={color} 
+      height={height}
+      >
       {text}
     </ButtonWrapper>
   )
