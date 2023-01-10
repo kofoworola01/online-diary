@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 import AvatarImage from '../../images/avatar2.png'
 import Card from 'components/Card'
 import Text from 'components/Text'
@@ -10,20 +11,24 @@ import { DashboardWrapper, Sidebar, Content, ImageWrapper, CardContainer, IconWr
 
 const Dashboard = () => {
 
+    const navigate = useNavigate()
+
     const SiderbarList = [
         {
             name: 'Profile',
-            icon: <PersonIcon />
+            icon: <PersonIcon />,
+            // path: 'login'
         },
         {
             name: 'Invite',
-            icon: <EmailIcon />
+            icon: <EmailIcon />,
+            // path: 'login'
         },
         {
             name: 'Logout',
-            icon: <LogoutIcon />
-        },
-        
+            icon: <LogoutIcon />,
+            path: 'login'
+        }, 
     ]
 
     return (
@@ -31,8 +36,8 @@ const Dashboard = () => {
             <Sidebar>
                 <ImageWrapper src={AvatarImage} />
                 <div style={{marginTop: 40, width: '44%'}}>
-                    {SiderbarList.map((item) => (
-                        <IconWrapper>
+                    {SiderbarList.map((item, i) => (
+                        <IconWrapper onClick={() => navigate(`/${item.path}`)} key={i}>
                             {item.icon}
                             <Text text={item.name} pointer />
                         </IconWrapper>
