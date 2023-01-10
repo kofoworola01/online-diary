@@ -13,6 +13,10 @@ const GlobalStyle = createGlobalStyle`
     font-size: 16px;
     /* font-weight: 700; */
   }
+
+  .a{
+    background-color: red;
+  }
 `
 
 export default GlobalStyle

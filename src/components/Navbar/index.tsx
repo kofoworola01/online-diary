@@ -13,8 +13,13 @@ const Navbar: React.FC<NavbarProps> = ({hideLogin}) => {
   return (
     <>
       <Wrapper>
-        <Text fontSize={'23px'} onClick={() => navigate('/')} text='Online Journal'/>
-        {!hideLogin && <Text onClick={() => navigate('/login')} text='Login' />}
+        <Text 
+          fontSize={'23px'} 
+          onClick={() => navigate('/')} 
+          text='Online Journal'
+          pointer
+          />
+        {!hideLogin && <Text onClick={() => navigate('/login')} text='Login' pointer />}
       </Wrapper>  
     </>
   )

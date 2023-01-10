@@ -7,12 +7,19 @@ interface TextProps {
     onClick?: any;
     fontWeight?: any;
     alignCenter?: any;
+    pointer?: boolean;
 }
 
-const Text: React.FC<TextProps> = ({text, fontSize, onClick, fontWeight, alignCenter}) => {
+const Text: React.FC<TextProps> = ({text, fontSize, onClick, fontWeight, alignCenter, pointer}) => {
   return (
     <div>
-        <TextWrapper fontSize={fontSize} onClick={onClick} fontWeight={fontWeight} alignCenter={alignCenter}>
+        <TextWrapper 
+          fontSize={fontSize} 
+          onClick={onClick} 
+          fontWeight={fontWeight} 
+          alignCenter={alignCenter}
+          pointer={pointer}
+          >
           {text}
         </TextWrapper>
     </div>
