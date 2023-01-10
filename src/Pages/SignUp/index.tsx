@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 import Navbar from 'components/Navbar'
 import FormBox from 'components/FormBox'
 import InputFields from 'components/InputFields'
@@ -7,6 +8,8 @@ import Button from 'components/Button'
 import { ButtonWrapper } from '../Login/login.styled'
 
 const SignUp = () => {
+  const navigate = useNavigate()
+
   return (
     <div>
         <div>
@@ -25,8 +28,8 @@ const SignUp = () => {
           <Button
             text={'SignUp'}
             bgColor='#9370DB'
-            onClick={() => {}}
             style={{marginTop: 60}}
+            onClick={() => navigate('/dashboard')}
           />
           <Text
           text='Already have an account? Sign In'
