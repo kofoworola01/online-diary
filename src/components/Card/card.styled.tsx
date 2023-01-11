@@ -30,28 +30,3 @@ export const IconWrapper = styled(CardFooter)<{width: any}>`
     font-size: 18px;
     width: ${(({width}) => width && '18%')};
 `
-export const ModalWrapper = styled.div`
-    height: 80vh;
-    background-color: whitesmoke;
-    width: 50%;
-    border: 2px solid whitesmoke !important;
-    top: 50%;
-    left: 0;
-    transform: translate(40%, 0%);
-    margin: 50px;
-`
-export const ModalContent = styled.div`
-    padding: 25px;
-    position: relative;
-    height: 46vh;
-`
-export const ModalHeader = styled.div`
-    padding: 25px;
-    color: #9370DB;
-`
-export const BtnWrapper = styled(CardFooter)`
-    position: absolute;
-    width: 34%;
-    bottom: -50px;
-    left: 34%;
-`
