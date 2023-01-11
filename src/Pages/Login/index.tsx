@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useNavigate } from "react-router-dom";
 import Navbar from 'components/Navbar'
 import FormBox from 'components/FormBox'
@@ -10,6 +10,21 @@ import { ButtonWrapper } from './login.styled'
 const Login = () => {
   const navigate = useNavigate()
 
+  const [inputs, setInputs] = useState({
+    userName: '',
+    password: ''
+  })
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const {name, value} = event.target
+    setInputs(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  console.log(inputs, '------')
+
   return (
     <div>
       <Navbar hideLogin />
@@ -20,8 +35,18 @@ const Login = () => {
           fontSize={'25px'}
           alignCenter
         />
-        <InputFields placeholder='Enter your username' />
-        <InputFields placeholder='Enter your password'/>
+        <InputFields 
+          name='userName'
+          placeholder='Enter your username' 
+          value={inputs.userName}
+          onChange={handleChange}
+        />
+        <InputFields 
+          name='password'
+          placeholder='Enter your password'
+          value={inputs.password}
+          onChange={handleChange}
+        />
         <ButtonWrapper>
           <Button
             text={'Login'}

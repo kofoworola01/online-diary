@@ -1,59 +1,23 @@
-import React, { useState } from 'react'
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import Text from 'components/Text';
-import Modal from '@mui/material/Modal';
-import Button from 'components/Button';
 
-import {CardWrapper, IconWrapper, CardFooter, ModalWrapper, ModalContent, ModalHeader, BtnWrapper} from './card.styled'
 
-const Card = () => {
-  const [open, setOpen] = useState(false);
+import {
+  CardWrapper, 
+  IconWrapper, 
+  CardFooter, 
+} from './card.styled'
 
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+interface CardProps {
+  onClick: any;
+}
+
+const Card: React.FC<CardProps> = ({onClick}) => {
 
   return (
     <div>
-        <Modal
-          open={open}
-          onClose={handleClose}
-          children={
-            <ModalWrapper>
-              <div>
-                <ModalHeader>
-                  <Text 
-                    text='Update your entry'
-                    fontSize='20px'
-                    alignCenter
-                  />
-                </ModalHeader>
-                <ModalContent>
-                 <BtnWrapper>
-                  <Button 
-                      text='Cancel'
-                      bgColor='#fff'
-                      onClick={() => setOpen(false)}
-                      color='#9370DB'
-                      width='92px'
-                      height='34px'
-                    />
-                    <Button 
-                      text='Update'
-                      bgColor='#9370DB'
-                      onClick={() => {}}
-                      width='92px'
-                      height='34px'
-                    />
-                 </BtnWrapper>
-                </ModalContent>
-              </div>
-
-            </ModalWrapper>
-          }
-        />
-       
-        <CardWrapper onClick={handleOpen}>
+        <CardWrapper onClick={onClick}>
             <div>
               <Text 
                 text='The Fisherman'

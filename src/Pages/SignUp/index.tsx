@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState}  from 'react'
 import { useNavigate } from "react-router-dom";
 import Navbar from 'components/Navbar'
 import FormBox from 'components/FormBox'
@@ -9,6 +9,20 @@ import { ButtonWrapper } from '../Login/login.styled'
 
 const SignUp = () => {
   const navigate = useNavigate()
+
+  const [inputs, setInputs] = useState({
+    userName: '',
+    email: '',
+    password: '',
+  })
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const {name, value} = event.target
+    setInputs(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
 
   return (
     <div>
@@ -21,9 +35,24 @@ const SignUp = () => {
           fontSize={'25px'}
           alignCenter
         />
-        <InputFields placeholder='Choose a username' />
-        <InputFields placeholder='Enter your email address' />
-        <InputFields placeholder='Enter your password'/>
+        <InputFields
+          name='userName'
+          placeholder='Choose a username' 
+          value={inputs.userName}
+          onChange={handleChange}
+        />
+        <InputFields 
+          placeholder='Enter your email address' 
+          name='email'
+          value={inputs.email}
+          onChange={handleChange}
+          />
+        <InputFields 
+          name='password'
+          placeholder='Enter your password'
+          value={inputs.password}
+          onChange={handleChange}
+        />
         <ButtonWrapper>
           <Button
             text={'SignUp'}
