@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import AvatarImage from '../../images/avatar2.png'
 import Card from 'components/Card'
 import Text from 'components/Text'
+import { EmptyStateIllustrator } from '../../images/emptyState'
 import PersonIcon from '@mui/icons-material/Person';
 import EmailIcon from '@mui/icons-material/Email';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -10,7 +11,7 @@ import Modal from '@mui/material/Modal';
 import InputFields from 'components/InputFields';
 import AddIcon from '@mui/icons-material/Add';
 import Button from 'components/Button';
-
+import Alert from '@mui/material/Alert';
 
 import {
     DashboardWrapper,
@@ -24,29 +25,60 @@ import {
     ModalHeader,
     BtnWrapper,
     TopContent,
+    EmptyState,
+    ToastWrapper,
 } from './dashboard.styled'
+
+interface UserInfo {
+    title: string;
+    text: string;
+}
 
 const Dashboard = () => {
 
     const navigate = useNavigate()
     const [open, setOpen] = useState(false);
     const [newEntry, setNewEntry] = useState(false)
-    const handleOpen = () => setOpen(true);
+    const [entries, setEntries] = useState<UserInfo[]>([])
+    const [errors, setErrors] = useState({
+        title: '',
+        text: ''
+    })
+    const [inputs, setInputs] = useState({
+        title: '',
+        text: ''
+    })
 
     const handleClose = () => {
         setOpen(false)
         setNewEntry(false)
     };
 
+    const handleOpen = () => {
+        setOpen(true)
+        setErrors({
+            title: '',
+            text: '',
+        })
+        setInputs(preState => ({
+            ...preState,
+            title: '',
+            text: '',
+        }))
+    };
+
     const handleAdd = () => {
+        if (Object.values(inputs).some(a => a === "")) {
+            setErrors({
+                title: !inputs.title ? " title error" : "",
+                text: !inputs.text ? " text error" : "",
+            })
+            return;
+        }
         setOpen(false)
         setNewEntry(false)
+        setEntries([...entries, inputs])
     }
-
-    const [inputs, setInputs] = useState({
-        title: '',
-        text: ''
-    })
 
     const handleChange = (event: React.ChangeEvent<any>) => {
         const { name, value } = event.target
@@ -55,8 +87,6 @@ const Dashboard = () => {
             [name]: value
         }))
     }
-
-    console.log(inputs)
 
     const SiderbarList = [
         {
@@ -91,6 +121,9 @@ const Dashboard = () => {
                                     alignCenter
                                 />
                             </ModalHeader>
+                            {errors.title && errors.text && <ToastWrapper>
+                                <Alert severity="error">Fields may not be blank</Alert>
+                            </ToastWrapper>}
                             <ModalContent>
                                 <Text
                                     text='Entry Title'
@@ -103,7 +136,7 @@ const Dashboard = () => {
                                     value={inputs.title}
                                     onChange={handleChange}
                                     inputWidth='97%'
-                                    border={'1px solid #000000'}
+                                    border={`1px solid  ${errors.title ? 'red' : 'black'}`}
                                 />
                                 <textarea
                                     rows={10}
@@ -115,6 +148,7 @@ const Dashboard = () => {
                                         height: "200px",
                                         padding: '10px',
                                         borderRadius: '10px',
+                                        border: `1px solid ${errors.text ? 'red' : 'black'}`,
                                     }}
                                 />
                                 <BtnWrapper>
@@ -158,28 +192,41 @@ const Dashboard = () => {
                         fontWeight={700}
                         fontSize={'25px'}
                     />
-                    <TopContent 
-                        style={{cursor: 'pointer'}}
+                    <TopContent
+                        style={{ cursor: 'pointer' }}
                         onClick={() => {
                             setNewEntry(true)
                             handleOpen()
                         }}
                     >
                         <AddIcon />
-                        <Text 
+                        <Text
                             text='Add'
                         />
                     </TopContent>
                 </TopContent>
-                <CardContainer>
-                    {[...Array(8)].map(i => (
-                        <div key={i}>
-                            <Card
-                                onClick={handleOpen}
-                            />
-                        </div>
-                    ))}
-                </CardContainer>
+                <>
+                    {entries.length > 0 ? (
+                        <CardContainer>
+                            {entries.map((entry, index) => {
+                                return (
+                                    <div key={index}>
+                                        <Card
+                                            onClick={handleOpen}
+                                            title={entry.title}
+                                            text={entry.text}
+                                        />
+                                    </div>
+                                )
+                            })}
+                        </CardContainer>
+                    ) : (
+                        <EmptyState>
+                            <EmptyStateIllustrator />
+                            <Text text='You have no entry. Click on Add' />
+                        </EmptyState>
+                    )}
+                </>
             </Content>
         </DashboardWrapper>
     )
