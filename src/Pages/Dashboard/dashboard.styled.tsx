@@ -69,3 +69,13 @@ export const BtnWrapper = styled(FlexWrapper)`
 export const TopContent = styled(FlexWrapper)`
     justify-content: space-between;
 `
+
+export const EmptyState = styled(FlexWrapper)`
+    justify-content: space-between;
+    flex-direction: column;
+    margin-top: 120px;
+`
+export const ToastWrapper = styled(FlexWrapper)`
+    height: 30px;
+    justify-content: center;
+`

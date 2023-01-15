@@ -11,21 +11,23 @@ import {
 
 interface CardProps {
   onClick: any;
+  text: string;
+  title: string;
 }
 
-const Card: React.FC<CardProps> = ({onClick}) => {
+const Card: React.FC<CardProps> = ({onClick, text, title}) => {
 
   return (
     <div>
         <CardWrapper onClick={onClick}>
             <div>
               <Text 
-                text='The Fisherman'
+                text={title}
                 fontSize='16x'
                 fontWeight={700}
               />
               <Text 
-                text='Today I was .....'
+                text={text}
                 fontSize='14px'
               />
             </div>
