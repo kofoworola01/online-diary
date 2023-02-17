@@ -106,6 +106,10 @@ const Dashboard = () => {
         },
     ]
 
+    const handleDelete = (id: number) => {
+        const filterEntry = entries.filter((_, i) => i !== id)
+        setEntries(filterEntry)
+    }
     return (
         <DashboardWrapper>
             <Modal
@@ -170,7 +174,6 @@ const Dashboard = () => {
                                 </BtnWrapper>
                             </ModalContent>
                         </div>
-
                     </ModalWrapper>
                 }
             />
@@ -215,6 +218,7 @@ const Dashboard = () => {
                                             onClick={handleOpen}
                                             title={entry.title}
                                             text={entry.text}
+                                            handleDelete={() => handleDelete(index)}
                                         />
                                     </div>
                                 )
