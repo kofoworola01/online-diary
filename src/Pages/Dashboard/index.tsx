@@ -12,6 +12,8 @@ import InputFields from 'components/InputFields';
 import AddIcon from '@mui/icons-material/Add';
 import Button from 'components/Button';
 import Alert from '@mui/material/Alert';
+import { logout } from 'redux/slices/userSlices';
+import { useAppDispatch , RootState} from 'redux/store';
 
 import {
     DashboardWrapper,
@@ -35,7 +37,7 @@ interface UserInfo {
 }
 
 const Dashboard = () => {
-
+    const dispatch = useAppDispatch()
     const navigate = useNavigate()
     const [open, setOpen] = useState(false);
     const [newEntry, setNewEntry] = useState(false)
@@ -181,7 +183,14 @@ const Dashboard = () => {
                 <ImageWrapper src={AvatarImage} />
                 <div style={{ marginTop: 40, width: '44%' }}>
                     {SiderbarList.map((item, i) => (
-                        <IconWrapper onClick={() => navigate(`/${item.path}`)} key={i}>
+                        <IconWrapper
+                         onClick={() => {
+                            if(item.name === 'Logout'){
+                                dispatch(logout())
+                            }
+                            navigate(`/${item.path}`)
+                        }} 
+                         key={i}>
                             {item.icon}
                             <Text text={item.name} pointer />
                         </IconWrapper>

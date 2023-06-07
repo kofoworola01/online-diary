@@ -5,7 +5,7 @@ export const InputWrapper = styled.input<{inputWidth?: string, border?: string}>
     border-style: none;
     border-radius: 10px;
     padding: 15px 10px;
-    border: ${(({border}) => border && border)};
+    border: ${(({border}) => border && border)}; 
 
     &:focus {
         outline: none;
