@@ -3,11 +3,11 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import Text from 'components/Text';
 
-
 import {
   CardWrapper,
   IconWrapper,
   CardFooter,
+  TextWrapper
 } from './card.styled'
 import data from 'utils/data';
 
@@ -35,7 +35,7 @@ useEffect(()=> {
   return (
     <>
       <CardWrapper bgColor={color}>
-        <div>
+        <TextWrapper>
           <Text
             text={title}
             fontSize='16x'
@@ -45,7 +45,7 @@ useEffect(()=> {
             text={text}
             fontSize='14px'
           />
-        </div>
+        </TextWrapper>
         <CardFooter>
           <IconWrapper width=''>
             <Text
