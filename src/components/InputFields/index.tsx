@@ -26,9 +26,6 @@ const InputFields: React.FC<InputFieldsProps> = ({
   type,
 }) => {
 
-  // const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   event.target.value
-  // }
   return (
     <div style={{marginTop: marginTop ? marginTop : 50, marginBottom: marginBottom}}>
       <InputWrapper 
@@ -38,9 +35,8 @@ const InputFields: React.FC<InputFieldsProps> = ({
         defaultValue={value}
         onChange={onChange}
         inputWidth={inputWidth}
-        border={border}
+        border={border}    
       />
-    {/* {type === 'password' && <VisibilityIcon />} */}
     </div>
   )
 }

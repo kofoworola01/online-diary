@@ -15,6 +15,6 @@ export const ButtonWrapper = styled.div<{
     align-items: center;
     margin-top: 40px;
     color: ${(({color}) => color ? color : 'whitesmoke' )};
-    border: 2px solid #9370DB;
+    border: 1px solid #081630;
     cursor: pointer;
 `

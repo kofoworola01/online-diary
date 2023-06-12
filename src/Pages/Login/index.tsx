@@ -6,7 +6,7 @@ import InputFields from 'components/InputFields'
 import Text from 'components/Text'
 import Button from 'components/Button'
 import { ButtonWrapper } from './login.styled'
-import { signin } from 'redux/slices/userSlices';
+import { signin } from 'redux/slices/user';
 import { useAppDispatch } from 'redux/store';
 import { useSelector } from 'react-redux';
 import { RootState } from 'redux/store';
@@ -14,19 +14,20 @@ import { RootState } from 'redux/store';
 const Login = () => {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
-  const {users} = useSelector((state: RootState) => state )
-  const {user, loading} = users;
+  const {data, loading, error} = useSelector((state: RootState) => state.user )
   
+  const [inputs, setInputs] = useState({
+    username: 'Simbiat',
+    password: 'Simbiat1234'
+  })
 
   useEffect(() => {
-  if(user?.status === 'Success'){
+  if(data){
     navigate('/dashboard')
   }
-  },[user?.status])
-  const [inputs, setInputs] = useState({
-    username: '',
-    password: ''
-  })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[data])
+ 
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const {name, value} = event.target
@@ -39,8 +40,8 @@ const Login = () => {
   const handleSubmit = () => {
     dispatch(signin(inputs))
   }
+  
     
-
   return (
     <div>
       <Navbar hideLogin />
@@ -51,6 +52,7 @@ const Login = () => {
           fontSize={'25px'}
           alignCenter
         />
+      {error && <p style={{ color: "red" }}> {error}</p>}
         <InputFields 
           name='username'
           placeholder='Enter your username' 
@@ -66,8 +68,8 @@ const Login = () => {
         />
         <ButtonWrapper>
           <Button
-            text={'Login'}
-            bgColor='#9370DB'
+            text={loading ? "loading ...": 'Login'}
+            bgColor='#081630'
             onClick={handleSubmit}
             style={{marginTop: 60}}
           />

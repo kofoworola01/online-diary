@@ -1,18 +1,21 @@
 import styled from 'styled-components'
 
-export const Image = styled.img`
-    width: 60%;
-    /* height: 95vh; */
-    /* opacity: 0.5; */
+export const Image = styled.div`
+    width: 50%;
+img{
+    object-fit: contain;
+     width: 100%;
+    }
 `
 export const Container = styled.div`
     display: flex;
-    height: 95vh;
-    width: 100%;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 50px;
 `
 export const TextWrapper = styled.div`
     width: 40%;
-    margin: 100px 30px;
 
     h1 {
         color: black;
