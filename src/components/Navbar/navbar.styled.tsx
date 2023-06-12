@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  background-color: #9370DB;
+  background: #081630;
   display: flex;
   height: auto;
   justify-content: space-between;

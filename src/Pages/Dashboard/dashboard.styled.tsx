@@ -20,6 +20,7 @@ export const Content = styled.div`
     width: 70%;
     padding-top: 40px;
     padding-left: 300px;
+    margin-left: 30px;
 `
 export const ImageWrapper = styled.img`
     border-radius: 50%;
@@ -56,7 +57,7 @@ export const ModalContent = styled.div`
 `
 export const ModalHeader = styled.div`
     padding: 15px 15px 0 15px;
-    color: #9370DB;
+    color: #081630;
 `
 export const BtnWrapper = styled(FlexWrapper)`
     justify-content: space-between;

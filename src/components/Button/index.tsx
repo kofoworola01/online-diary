@@ -10,9 +10,10 @@ interface ButtonProps {
   color?: string,
   width?: string,
   height?: string,
+  border?: string,
 }
 
-const Button: React.FC<ButtonProps> = ({text, bgColor, style, onClick, color, width, height}) => {
+const Button: React.FC<ButtonProps> = ({text, bgColor, style, onClick, color, width, height, border}) => {
   return (
     <ButtonWrapper 
       bgColor={bgColor} 
