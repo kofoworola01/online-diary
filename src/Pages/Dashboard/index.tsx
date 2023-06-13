@@ -74,6 +74,10 @@ const Dashboard = () => {
   const handleClose = () => {
     setOpen(false);
     setNewEntry(false);
+    setErrors({
+    title: "",
+    entry: "",
+  })
   };
 
   const handleOpen = () => {
@@ -91,7 +95,7 @@ const Dashboard = () => {
   };
 
   const handleOpenEdit = (data: any) => {
-    setOpen(true);
+    handleOpen()
     setInputs(data);
   };
 
@@ -126,7 +130,6 @@ const Dashboard = () => {
     }));
   };
 
-  console.log(entries, 'entries')
 
   const SiderbarList = [
     {
@@ -239,7 +242,7 @@ const Dashboard = () => {
                 if (item.name === "Logout") {
                   dispatch(logout());
                 }
-                navigate(`/${item.path}`);
+                navigate(`/${item.path}`)
               }}
               key={i}
             >

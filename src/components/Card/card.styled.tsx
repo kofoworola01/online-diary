@@ -6,7 +6,6 @@ export const CardWrapper = styled.div<{bgColor: string}>`
     flex-direction: column;
     padding: 0px 22px 0px 21px;
     width: 100%;
-    height: 199px;
     background: ${props => props.bgColor };
     border-radius: 7px;
     box-shadow: 0px 0px 9px rgb(0 0 0 / 6%);
@@ -15,9 +14,9 @@ export const CardWrapper = styled.div<{bgColor: string}>`
     cursor: pointer;
     color: rgba(1,26,60,0.75);
 
-    &:hover {
+    /* &:hover {
         transform: scale(1.07);
-    }
+    } */
 `
 export const CardFooter = styled.div`
     display: flex;
@@ -33,4 +32,8 @@ export const IconWrapper = styled(CardFooter)<{width: any}>`
         border: none;
         cursor: pointer;
     }
+`
+export const TextWrapper = styled.div `
+    height: 199px;
+    overflow: scroll;
 `

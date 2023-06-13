@@ -43,7 +43,7 @@ export const userDetails = createAsyncThunk("user/details", async () => {
 
 export const logout = createAsyncThunk("user/logout", async () => {
   localStorage.clear();
-  return {};
+  return null;
 });
 
 const userSlice = createSlice({
@@ -86,7 +86,7 @@ const userSlice = createSlice({
         state.error = action.payload;
       })
 
-      .addCase(logout.rejected, (state: any, action: any) => {
+      .addCase(logout.fulfilled, (state: any, action: any) => {
         state.data = null;
         state.loading = false;
         state.error = "";

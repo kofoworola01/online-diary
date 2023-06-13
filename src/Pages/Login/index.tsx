@@ -14,7 +14,7 @@ import { RootState } from 'redux/store';
 const Login = () => {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
-  const {data, loading, error} = useSelector((state: RootState) => state.user )
+  const {data, loading, error}: any = useSelector((state: RootState) => state.user )
   
   const [inputs, setInputs] = useState({
     username: 'Simbiat',
@@ -22,7 +22,7 @@ const Login = () => {
   })
 
   useEffect(() => {
-  if(data){
+  if(data?.status  === "Success"){
     navigate('/dashboard')
   }
   // eslint-disable-next-line react-hooks/exhaustive-deps
