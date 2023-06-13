@@ -11,7 +11,6 @@ const GlobalStyle = createGlobalStyle`
 
   p {
     font-size: 16px;
-    /* font-weight: 700; */
   }
 
   .a{
