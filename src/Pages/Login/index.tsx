@@ -74,10 +74,12 @@ const Login = () => {
             style={{marginTop: 60}}
           />
           <Text
-          text='Not yet a user? Create Account'
-          fontWeight='normal'
-          fontSize={'15px'}
-          alignCenter
+            text='Not yet a user? Create Account'
+            fontWeight='normal'
+            fontSize={'15px'}
+            alignCenter
+            pointer
+            onClick={() => navigate("/signup")}
         />
         </ButtonWrapper>
       </FormBox>

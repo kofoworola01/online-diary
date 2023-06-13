@@ -93,6 +93,8 @@ const SignUp = () => {
               fontWeight="normal"
               fontSize={"15px"}
               alignCenter
+              pointer
+              onClick={() => navigate("/login")}
             />
           </ButtonWrapper>
         </FormBox>
