@@ -24,9 +24,8 @@ export const CardFooter = styled.div`
     align-items: center;
 `
 
-export const IconWrapper = styled(CardFooter)<{width: any}>`
+export const IconWrapper = styled(CardFooter)`
     font-size: 18px;
-    width: ${(({width}) => width && '18%')};
     button {
         background-color: transparent;
         border: none;
