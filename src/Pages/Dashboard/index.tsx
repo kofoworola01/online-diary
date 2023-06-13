@@ -1,3 +1,4 @@
+/* eslint-disable no-lone-blocks */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -151,8 +152,7 @@ const Dashboard = () => {
 
   const handleDelete = (id: number) => {
     dispatch(deleteEntry(id))
-    notify("Successfully deleted an entry");
-
+    // notify("Successfully deleted an entry");
   };
 
   if (loading) {
@@ -285,7 +285,7 @@ const Dashboard = () => {
                       title={entry.title}
                       text={entry.entry}
                       date={date}
-                      handleDelete={() => handleDelete(entry.id)}
+                      handleDelete={() =>{ handleDelete(entry.id)}}
                     />
                   </div>
                 );
