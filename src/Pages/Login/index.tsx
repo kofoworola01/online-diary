@@ -17,12 +17,13 @@ const Login = () => {
   const {data, loading, error}: any = useSelector((state: RootState) => state.user )
   
   const [inputs, setInputs] = useState({
-    username: 'Simbiat',
-    password: 'Simbiat1234'
+    username: '',
+    password: ''
   })
+  const [onLogin, setOnLogin] = useState(false);
 
   useEffect(() => {
-  if(data?.status  === "Success"){
+  if(onLogin && data?.status  === "Success" ){
     navigate('/dashboard')
   }
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -38,6 +39,7 @@ const Login = () => {
   }
 
   const handleSubmit = () => {
+    setOnLogin(true)
     dispatch(signin(inputs))
   }
   
