@@ -22,6 +22,7 @@ const Button: React.FC<ButtonProps> = ({text, bgColor, style, onClick, color, wi
       width={width} 
       color={color} 
       height={height}
+      data-testid="btn"
       >
       {text}
     </ButtonWrapper>

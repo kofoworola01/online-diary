@@ -7,9 +7,8 @@ import { Image, Container, TextWrapper } from './banner.styled'
 
 
 const Banner = () => {
-
     const navigate = useNavigate()
-
+    
   return (
     <div>
         <Container>

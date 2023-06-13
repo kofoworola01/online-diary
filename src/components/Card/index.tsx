@@ -34,26 +34,28 @@ useEffect(()=> {
 
   return (
     <>
-      <CardWrapper bgColor={color}>
+      <CardWrapper bgColor={color} data-testid='card-wrapper'>
         <TextWrapper>
           <Text
             text={title}
             fontSize='16x'
             fontWeight={700}
+            data-testid='title'
           />
           <Text
             text={text}
             fontSize='14px'
+            data-testid='body'
           />
         </TextWrapper>
         <CardFooter>
-          <IconWrapper width=''>
+          <IconWrapper>
             <Text
               text={date}
               fontSize='12px'
             />
           </IconWrapper>
-          <IconWrapper width>
+          <IconWrapper >
             <button onClick={handleDelete}>
               <DeleteIcon sx={{ color: 'red', fontSize: 18 }} />
             </button>
